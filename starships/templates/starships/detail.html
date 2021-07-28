@@ -1,0 +1,17 @@
+{% extends "starships/base.html" %}
+
+{% block content %}
+<div class="container">
+    {% for ship in ship %}
+    <article class="media content-section" >
+        <div class="media-body">
+            <h1>{{ ship.name }}</h1>
+            <h3>Model: {{ ship.model }}</h3>
+            <h3>Manufacturer: {{ ship.manufacturer }}</h3>
+            <h3>Cost in credits: {{ ship.cost_in_credits }}</h3>
+            <h3>Length: {{ ship.length }}</h3>
+        </div>
+    </article>
+    {% endfor %}
+</div>
+{% endblock content %}

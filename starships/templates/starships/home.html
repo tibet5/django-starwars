@@ -1,0 +1,26 @@
+{% extends "starships/base.html" %}
+{% load static %}
+
+
+{% block content %}
+<div class="container" id="ship-section">
+    {% for ship in ships %}
+        <article class="media content-section" >
+            <div class="media-body">
+              <div class="article-metadata">
+                <span class="mr-2">{{ ship.model }}</span>
+                <small class="text-muted">Hyper Drive Rating: {{ ship.hyperdrive_rating }}</small>
+              </div>
+              <h2><a class="article-title" href="{% url 'ship-detail' ship.name %}">{{ ship.name }}</a></h2>
+            </div>
+          </article>
+    {% endfor %}
+</div>
+<div class="container" id="load-container">
+    <button class="btn btn-dark btn-block" id="load-btn">Load More</button>
+</div>
+{% endblock content %}
+
+{% block javascript %}
+<script type="text/javascript" src="{% static 'starships/app.js'%}" ></script>
+{% endblock javascript %}
