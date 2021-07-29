@@ -16,10 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import RedirectView
+from starships import views as starship_views
 
 favicon_view = RedirectView.as_view(url='/static/starships/favicon.ico', permanent=True)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('starships.urls'))
+    path('', starship_views.home, name='home-page'),
+    path('search/', starship_views.search, name='search'),
+    path('ships/', include('starships.urls')),
+    path('people/', include('people.urls')),
 ]

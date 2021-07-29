@@ -1,0 +1,17 @@
+{% extends "starships/base.html" %}
+
+{% block content %}
+<div class="container">
+    {% for people in peoples %}
+    <article class="media content-section" >
+        <div class="media-body">
+            <h1>{{ people.name }}</h1>
+            <h3>height: {{ people.height }}</h3>
+            <h3>mass: {{ people.mass }}</h3>
+            <h3>hair_color: {{ people.hair_color }}</h3>
+            <h3>skin_color: {{ people.skin_color }}</h3>
+        </div>
+    </article>
+    {% endfor %}
+</div>
+{% endblock content %}
