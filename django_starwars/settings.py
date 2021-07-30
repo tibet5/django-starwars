@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'https://starwars-django.herokuapp.com/'
+    'starwars-django.herokuapp.com'
 ]
 
 
