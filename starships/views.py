@@ -5,13 +5,15 @@ import urllib
 
 # Create your views here.
 def home(request):
+    return render(request, 'starships/home.html')
+
+def ship(request):
     response = requests.get('https://swapi.dev/api/starships/')
     res = response.json()
     ships = {
         'ships': res['results']
     }
-    return render(request, 'starships/home.html', ships)
-
+    return render(request, 'starships/ship.html', ships)
 
 def detail(request, name):
     response = requests.get('https://swapi.dev/api/starships/?search='+urllib.parse.quote_plus(name))

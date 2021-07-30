@@ -1,0 +1,25 @@
+{% extends "starships/base.html" %}
+{% load static %}
+
+
+{% block content %}
+<div id="ship-section">
+    {% for people in peoples %}
+        <article class="media content-section" >
+            <div class="media-body">
+              <div class="article-metadata">
+                <span class="mr-2">Peoples of Star Wars</span>
+              </div>
+              <h2><a class="article-title" href="{% url 'people-detail' people.name %}">{{ people.name }}</a></h2>
+            </div>
+          </article>
+    {% endfor %}
+</div>
+<div id="load-container">
+    <button class="btn btn-dark btn-block" id="load-btn">Load More</button>
+</div>
+{% endblock content %}
+
+{% block javascript %}
+<script type="text/javascript" src="{% static 'people/app.js'%}" ></script>
+{% endblock javascript %}

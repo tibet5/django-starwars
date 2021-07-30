@@ -106,3 +106,7 @@ body {
     padding: 10px;
     border-radius: 0;
   }
+
+  .gap-2 {
+    gap: .5rem !important;
+  }

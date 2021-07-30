@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'people.apps.PeopleConfig',
     'starships.apps.StarshipsConfig',
     'django.contrib.admin',
     'django.contrib.auth',

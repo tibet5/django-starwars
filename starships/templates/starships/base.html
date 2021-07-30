@@ -18,23 +18,50 @@
     <header class="site-header">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
           <div class="container">
-            <a class="navbar-brand mr-4" href="{% url 'starships-home' %}">Starships</a>
+            <a class="navbar-brand mr-4" href="{% url 'home-page' %}">Starships</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarToggle">
               <div class="navbar-nav mr-auto">
-                <a class="nav-item nav-link" href="{% url 'ship-search' %}">Search</a>
+                <a class="nav-item nav-link" href="{% url 'search' %}">Search</a>
               </div>
             </div>
           </div>
         </nav>
       </header>
-      <div class="row">
-        <div class="col-md-12">
-                {% block content %}{% endblock %}
+      <main role="main" class="container">
+        <div class="row">
+          {% url 'home-page' as home %}
+          {% if request.path != home %}
+          <div class="col-md-8">
+            {% block content %}{% endblock %}
+          </div>
+          <div class="col-md-4">
+            <div class="content-section">
+              <h3>The Universe</h3>
+              <hr>
+                <ul class="list-group">
+                  <a href="{% url 'people-home' %}"><li class="list-group-item list-group-item-light">People</li></a>
+                  <a href="{% url 'ship-ship' %}"><li class="list-group-item list-group-item-light">Starships</li></a>
+                </ul>
             </div>
+          </div>
+          {% else %}
+            <div class="px-4 py-5 my-5 text-center">
+              <img class="d-block mx-auto mb-4" src="{% static 'starships/favicon.ico' %}" alt="" width="72" height="57">
+              <h1 class="display-5 fw-bold">Welcome to the Star Wars Universe</h1>
+              <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">Star Wars is an American epic space opera multimedia franchise created by George Lucas, which began with the eponymous 1977 film and quickly became a worldwide pop-culture phenomenon.</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                  <a href="{% url 'people-home' %}"><button type="button" class="btn btn-primary btn-lg px-4 gap-3">Peoples</button></a>
+                  <a href="{% url 'ship-ship' %}"><button type="button" class="btn btn-primary btn-lg px-4 gap-3">Star Ships</button></a>
+                </div>
+              </div>
+            </div>
+          {% endif %}
         </div>
+      </main>
 
    
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
